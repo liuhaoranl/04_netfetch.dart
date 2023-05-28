@@ -1,5 +1,8 @@
-import 'package:netfetch/netfetch.dart' as netfetch;
+import 'package:http/http.dart' as http;
 
-void main(List<String> arguments) {
-  print('Hello world: ${netfetch.calculate()}!');
+void main(List<String> arguments) async {//构建网址
+  final httpPackageUrl = Uri.https('raw.githubusercontent.com',
+      '/liuhaoranl/04_netfetch.dart/main/my_data.json');
+  final httpPackageInfo = await http.read(httpPackageUrl);
+  print(httpPackageInfo);
 }
